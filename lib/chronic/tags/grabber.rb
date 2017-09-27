@@ -16,9 +16,9 @@ module Chronic
 
     def self.patterns
       @@patterns ||= {
-        'last' => :last,
-        'this' => :this,
-        'next' => :next
+        /last|poprzedni|poprzednia|temu/ => :last,
+        /this|ten|ta|obecna/ => :this,
+        /next|następny|następna/ => :next
       }
     end
 

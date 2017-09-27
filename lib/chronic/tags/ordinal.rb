@@ -20,7 +20,7 @@ module Chronic
             year = Chronic::Date::make_year(ordinal, options[:ambiguous_year_future_bias])
             tokens[i].tag(OrdinalYear.new(year.to_i, width))
           end
-        elsif tokens[i].word =~ /^second$/
+        elsif tokens[i].word =~ /^(second|drugi)$/
           tokens[i].tag(Ordinal.new(2, 1))
         end
       end

@@ -39,10 +39,10 @@ module Chronic
     def self.scan_for_season_names(token, options = {})
       scan_for token, RepeaterSeasonName,
       {
-        /^springs?$/ => :spring,
-        /^summers?$/ => :summer,
-        /^(autumn)|(fall)s?$/ => :autumn,
-        /^winters?$/ => :winter
+        /^(springs?|wiosn[aą])$/ => :spring,
+        /^(summers?|lato|latem)$/ => :summer,
+        /^((autumn)|(fall)s?|jesieni[aą]|na jesie[nń])$/ => :autumn,
+        /^(winters?|zim[ąa]|w zimie)$/ => :winter
       }, options
     end
 
@@ -52,18 +52,18 @@ module Chronic
     def self.scan_for_month_names(token, options = {})
       scan_for token, RepeaterMonthName,
       {
-        /^jan[:\.]?(uary)?$/ => :january,
-        /^feb[:\.]?(ruary)?$/ => :february,
-        /^mar[:\.]?(ch)?$/ => :march,
-        /^apr[:\.]?(il)?$/ => :april,
-        /^may$/ => :may,
-        /^jun[:\.]?e?$/ => :june,
-        /^jul[:\.]?y?$/ => :july,
-        /^aug[:\.]?(ust)?$/ => :august,
-        /^sep[:\.]?(t[:\.]?|tember)?$/ => :september,
-        /^oct[:\.]?(ober)?$/ => :october,
-        /^nov[:\.]?(ember)?$/ => :november,
-        /^dec[:\.]?(ember)?$/ => :december
+        /^(jan[:\.]?(uary)?|stycze[nń])$/ => :january,
+        /^(feb[:\.]?(ruary)?|luty)$/ => :february,
+        /^(mar[:\.]?(ch)?|marzec)$/ => :march,
+        /^(apr[:\.]?(il)?|kwiecie[nń])$/ => :april,
+        /^(may|maj)$/ => :may,
+        /^(jun[:\.]?e?|czerwiec)$/ => :june,
+        /^(jul[:\.]?y?|lipiec)$/ => :july,
+        /^(aug[:\.]?(ust)?|sierpie[nń])$/ => :august,
+        /^(sep[:\.]?(t[:\.]?|tember)?|wrzesie[nń])$/ => :september,
+        /^(oct[:\.]?(ober)?|pa[zź]dziernik)$/ => :october,
+        /^(nov[:\.]?(ember)?|listopad)$/ => :november,
+        /^(dec[:\.]?(ember)?|grudzie[nń])$/ => :december
       }, options
     end
 
@@ -73,13 +73,13 @@ module Chronic
     def self.scan_for_day_names(token, options = {})
       scan_for token, RepeaterDayName,
       {
-        /^m[ou]n(day)?$/ => :monday,
-        /^t(ue|eu|oo|u)s?(day)?$/ => :tuesday,
-        /^we(d|dnes|nds|nns)(day)?$/ => :wednesday,
-        /^th(u|ur|urs|ers)(day)?$/ => :thursday,
-        /^fr[iy](day)?$/ => :friday,
-        /^sat(t?[ue]rday)?$/ => :saturday,
-        /^su[nm](day)?$/ => :sunday
+        /^(m[ou]n(day)?|poniedzia[lł]ek|pon|pn)$/ => :monday,
+        /^(t(ue|eu|oo|u)s?(day)?|wtorek|wto?)$/ => :tuesday,
+        /^(we(d|dnes|nds|nns)(day)?|[śs]r(oda)?)$/ => :wednesday,
+        /^(th(u|ur|urs|ers)(day)?|czw(artek)?)$/ => :thursday,
+        /^(fr[iy](day)?|pi[aą]tek|pt|pi[aą])$/ => :friday,
+        /^(sat(t?[ue]rday)?|sobota|sb|sob)$/ => :saturday,
+        /^(su[nm](day)?|niedziela|nd|niedz|ndz)$/ => :sunday
       }, options
     end
 
@@ -89,12 +89,12 @@ module Chronic
     def self.scan_for_day_portions(token, options = {})
       scan_for token, RepeaterDayPortion,
       {
-        /^ams?$/ => :am,
-        /^pms?$/ => :pm,
-        /^mornings?$/ => :morning,
-        /^afternoons?$/ => :afternoon,
-        /^evenings?$/ => :evening,
-        /^(night|nite)s?$/ => :night
+        /^(ams?|przed po[lł]udniem)$/ => :am,
+        /^(pms?|po po[lł]udniu)$/ => :pm,
+        /^(mornings?|rano|rankiem)$/ => :morning,
+        /^(afternoons?|popołudnie|popołudniami)$/ => :afternoon,
+        /^(evenings?|wieczór|wieczorem|wieczorami)$/ => :evening,
+        /^(nights?|nites?|noc|nocą|nocami|w nocy)$/ => :night
       }, options
     end
 
@@ -113,18 +113,18 @@ module Chronic
         /^years?$/ => :year,
         /^q$/ => :quarter,
         /^seasons?$/ => :season,
-        /^months?$/ => :month,
+        /^(months?|miesi[aą]c[eua]?)$/ => :month,
         /^fortnights?$/ => :fortnight,
-        /^weeks?$/ => :week,
+        /^(weeks?|tydzie[nń]|tygodni[eu]?)$/ => :week,
         /^weekends?$/ => :weekend,
         /^(week|business)days?$/ => :weekday,
-        /^days?$/ => :day,
-	      /^hrs?$/ => :hour,
-        /^hours?$/ => :hour,
+        /^(days?|dzie[nń]|dni)$/ => :day,
+	      /^(hrs?|godz)$/ => :hour,
+        /^(hours?|godzin[ęay]?)$/ => :hour,
 	      /^mins?$/ => :minute,
-        /^minutes?$/ => :minute,
-	      /^secs?$/ => :second,
-        /^seconds?$/ => :second
+        /^(minutes?|minut[ęay]?)$/ => :minute,
+	      /^(secs?|sek)$/ => :second,
+        /^(seconds?|sekund[ęya]?)$/ => :second
       }.each do |item, symbol|
         if item =~ token.word
           klass_name = 'Repeater' + symbol.to_s.capitalize
