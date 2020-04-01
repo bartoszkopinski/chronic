@@ -52,18 +52,18 @@ module Chronic
     def self.scan_for_month_names(token, options = {})
       scan_for token, RepeaterMonthName,
       {
-        /^(jan[:\.]?(uary)?|stycze[nń])$/ => :january,
-        /^(feb[:\.]?(ruary)?|luty)$/ => :february,
-        /^(mar[:\.]?(ch)?|marzec)$/ => :march,
-        /^(apr[:\.]?(il)?|kwiecie[nń])$/ => :april,
-        /^(may|maj)$/ => :may,
-        /^(jun[:\.]?e?|czerwiec)$/ => :june,
-        /^(jul[:\.]?y?|lipiec)$/ => :july,
-        /^(aug[:\.]?(ust)?|sierpie[nń])$/ => :august,
-        /^(sep[:\.]?(t[:\.]?|tember)?|wrzesie[nń])$/ => :september,
-        /^(oct[:\.]?(ober)?|pa[zź]dziernik)$/ => :october,
-        /^(nov[:\.]?(ember)?|listopad)$/ => :november,
-        /^(dec[:\.]?(ember)?|grudzie[nń])$/ => :december
+        /^(jan[:\.]?(uary)?|stycze[nń]|stycznia)$/ => :january,
+        /^(feb[:\.]?(ruary)?|luty|lutego)$/ => :february,
+        /^(mar[:\.]?(ch)?|marzec|marca)$/ => :march,
+        /^(apr[:\.]?(il)?|kwiecie[nń]|kwietnia)$/ => :april,
+        /^(may|maja?)$/ => :may,
+        /^(jun[:\.]?e?|czerwiec|czerwca)$/ => :june,
+        /^(jul[:\.]?y?|lipiec|lipca)$/ => :july,
+        /^(aug[:\.]?(ust)?|sierpie[nń]|sierpnia)$/ => :august,
+        /^(sep[:\.]?(t[:\.]?|tember)?|wrzesie[nń]|wrze[sś]nia)$/ => :september,
+        /^(oct[:\.]?(ober)?|pa[zź]dziernika?)$/ => :october,
+        /^(nov[:\.]?(ember)?|listopada?)$/ => :november,
+        /^(dec[:\.]?(ember)?|grudzie[nń]|grudnia)$/ => :december
       }, options
     end
 
