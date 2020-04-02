@@ -16,7 +16,7 @@ module Chronic
 
     def self.patterns
       @@patterns ||= {
-        /^(past|przesz[lł][ay])$/i => :past,
+        /^(past|przesz[lł][ay]|temu)$/i => :past,
         /^(future|in|przysz[lł][ay])$/i => :future,
       }
     end
