@@ -134,7 +134,7 @@ module Chronic
       text.gsub!(/\b(half|w ?p[oó][lł])\b/, '30')
       text.gsub!(/(\d{1,2}) (to|till|prior to|before|do)\b/, '\1 minutes past')
       text.gsub!(/(\d{1,2}) (after|past|po)\b/, '\1 minutes future')
-      text.gsub!(/\b(?:ago|before(?: now)?|temu|przed)\b/, 'past')
+      text.gsub!(/\b(?:ago|before(?: now)?|przed)\b/, 'past')
       text.gsub!(/\bthis (?:last|past)\b/, 'last')
       text.gsub!(/\b(zesz[lł][yą])\b/, 'last')
       text.gsub!(/\b(?:in|during) the (morning)\b/, '\1')
