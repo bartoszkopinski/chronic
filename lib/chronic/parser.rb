@@ -114,6 +114,7 @@ module Chronic
       text.gsub!(/^jeden /, '1 ')
       text.gsub!(/^dwa /, '2 ')
       text.gsub!(/^trzy /, '3 ')
+      text.gsub!(/^około /, '')
       text.gsub!(/\bsecond (of|day|month|hour|minute|second|quarter)\b/, '2nd \1')
       text.gsub!(/\bthird quarter\b/, '3rd q')
       text.gsub!(/\bfourth quarter\b/, '4th q')
