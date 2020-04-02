@@ -134,7 +134,7 @@ module Chronic
       text.gsub!(/\b(half|w ?p[oó][lł])\b/, '30')
       text.gsub!(/(\d{1,2}) (to|till|prior to|before|do)\b/, '\1 minutes past')
       text.gsub!(/(\d{1,2}) (after|past|po)\b/, '\1 minutes future')
-      text.gsub!(/\b(?:ago|before(?: now)?|przed)\b/, 'past')
+      text.gsub!(/\b(?:ago|before(?: now)?|temu|przed)\b/, 'past')
       text.gsub!(/\bthis (?:last|past)\b/, 'last')
       text.gsub!(/\b(zesz[lł][yą])\b/, 'last')
       text.gsub!(/\b(?:in|during) the (morning)\b/, '\1')
@@ -145,7 +145,7 @@ module Chronic
       text.gsub!(/(\d)([ap]m|oclock)\b/, '\1 \2')
       text.gsub!(/\b(hence|after|from|od|za)\b/, 'future')
       text.gsub!(/^\s?an? /i, '1 ')
-      text.gsub!(/^(sekund[eę]|minut[eę]|godzin[eę]|dzie[nń]|tydzie[nń]|miesi[aą]c|rok) /i, '1 \1')
+      text.gsub!(/^(sekund[eę]|minut[eę]|godzin[eę]|dzie[nń]|tydzie[nń]|miesi[aą]c|rok) /i, '1 \1 ')
       text.gsub!(/ (sekund[eę]|minut[eę]|godzin[eę]|dzie[nń]|tydzie[nń]|miesi[aą]c|rok)$/i, '1 \1')
       text.gsub!(/\b(\d{4}):(\d{2}):(\d{2})\b/, '\1 / \2 / \3') # DTOriginal
       text.gsub!(/\b0(\d+):(\d{2}):(\d{2}) ([ap]m)\b/, '\1:\2:\3 \4')
