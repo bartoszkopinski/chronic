@@ -113,7 +113,7 @@ module Chronic
         /^years?$/ => :year,
         /^q$/ => :quarter,
         /^seasons?$/ => :season,
-        /^(months?|miesi[aą]c[eua]?)$/ => :month,
+        /^(months?|miesi[eęaą]c[yeua]?)$/ => :month,
         /^fortnights?$/ => :fortnight,
         /^(weeks?|tydzie[nń]|tygodni[eu]?)$/ => :week,
         /^weekends?$/ => :weekend,
