@@ -110,7 +110,7 @@ module Chronic
     # Returns a new Repeater object.
     def self.scan_for_units(token, options = {})
       {
-        /^years?$/ => :year,
+        /^years?|rok|lata$/ => :year,
         /^q$/ => :quarter,
         /^seasons?$/ => :season,
         /^(months?|miesi[eęaą]c[yeua]?)$/ => :month,
