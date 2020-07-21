@@ -114,7 +114,7 @@ module Chronic
       text.gsub!(/^jeden /, '1 ')
       text.gsub!(/^dwa /, '2 ')
       text.gsub!(/^trzy /, '3 ')
-      text.gsub!(/^około /, '')
+      text.gsub!(/^oko[łl]o /, '')
       text.gsub!(/^ponad /, '')
       text.gsub!(/\bsecond (of|day|month|hour|minute|second|quarter)\b/, '2nd \1')
       text.gsub!(/\bthird quarter\b/, '3rd q')
@@ -146,7 +146,7 @@ module Chronic
       text.gsub!(/(\d)([ap]m|oclock)\b/, '\1 \2')
       text.gsub!(/\b(hence|after|from|od|za)\b/, 'future')
       text.gsub!(/^\s?an? /i, '1 ')
-      text.gsub!(/^(sekund[eę]|minut[eę]|godzin[eę]|dzie[nń]|tydzie[nń]|miesi[aą]c|rok) /i, '1 \1 ')
+      text.gsub!(/^(sekund[eę]|minut[eę]|godzin[eęay]|dzie[nń]|tydzie[nń]|miesi[aą]c|rok) /i, '1 \1 ')
       text.gsub!(/ (sekund[eę]|minut[eę]|godzin[eę]|dzie[nń]|tydzie[nń]|miesi[aą]c|rok)$/i, '1 \1')
       text.gsub!(/\b(\d{4}):(\d{2}):(\d{2})\b/, '\1 / \2 / \3') # DTOriginal
       text.gsub!(/\b0(\d+):(\d{2}):(\d{2}) ([ap]m)\b/, '\1:\2:\3 \4')
